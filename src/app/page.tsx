@@ -1,11 +1,15 @@
 import { refreshTime } from '@/lib/actions'
-import { unstable_cacheTag as cacheTag } from 'next/cache'
+import { unstable_cache } from 'next/cache'
 
-async function getCurrentTime() {  
-  "use cache"
-  cacheTag("time");
+const getCurrentTime = unstable_cache(
+  async () => {
     return new Date().toLocaleTimeString();
+  },
+  ['time-cache-key'],
+  {
+    tags: ['time'],
   }
+)
 
 export default async function Home() {
   const currentTime = await getCurrentTime();
