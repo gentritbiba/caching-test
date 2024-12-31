@@ -1,5 +1,4 @@
 import { refreshTime } from '@/lib/actions'
-import { unstable_cacheTag as cacheTag } from 'next/cache'
 
 async function getCurrentTime() {  
   "use cache"
