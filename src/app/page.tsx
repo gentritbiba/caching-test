@@ -3,7 +3,6 @@ import { unstable_cacheTag as cacheTag } from 'next/cache'
 
 async function getCurrentTime() {  
   "use cache"
-  cacheTag("time");
     return new Date().toLocaleTimeString();
   }
 
