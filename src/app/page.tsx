@@ -1,7 +1,9 @@
 import { refreshTime } from '@/lib/actions'
+import { unstable_cacheTag } from 'next/cache';
 
 async function getCurrentTime() {  
   "use cache"
+  unstable_cacheTag("time")
     return new Date().toLocaleTimeString();
   }
 
